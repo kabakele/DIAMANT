@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Diamant - Kinshasa | Cuisine d'exception</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(70,70,70,0.5) 100%);
+        }
+        .dish-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        .neon-border {
+            box-shadow: 0 0 10px rgba(100, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center neon-border">
+                        <i class="fas fa-gem text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">DIAMANT</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-blue-400 transition duration-300">Accueil</a>
+                    <a href="#about" class="text-white hover:text-blue-400 transition duration-300">Notre Histoire</a>
+                    <a href="#menu" class="text-white hover:text-blue-400 transition duration-300">Menu</a>
+                    <a href="#gallery" class="text-white hover:text-blue-400 transition duration-300">Galerie</a>
+                    <a href="#contact" class="text-white hover:text-blue-400 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-white hover:text-blue-400">Accueil</a>
+                <a href="#about" class="block py-2 text-white hover:text-blue-400">Notre Histoire</a>
+                <a href="#menu" class="block py-2 text-white hover:text-blue-400">Menu</a>
+                <a href="#gallery" class="block py-2 text-white hover:text-blue-400">Galerie</a>
+                <a href="#contact" class="block py-2 text-white hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Restaurant Diamant" class="w-full h-full object-cover parallax">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="relative z-10 text-center px-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text">RESTAURANT DIAMANT</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Une expérience culinaire exceptionnelle au cœur de Kinshasa</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#reservation" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition duration-300 transform hover:scale-105">
+                    Réserver une table
+                </a>
+                <a href="#menu" class="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded-full font-semibold transition duration-300 transform hover:scale-105">
+                    Voir le menu
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#about" class="text-white animate-bounce inline-block">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">NOTRE HISTOIRE</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
+                <div class="lg:w-1/2 relative">
+                    <div class="floating">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Notre restaurant" class="rounded-xl shadow-2xl w-full h-auto">
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6">Le Diamant de Kinshasa</h3>
+                    <p class="text-gray-300 mb-4">Fondé en 2015, le restaurant Diamant est rapidement devenu une référence gastronomique à Kinshasa. Notre établissement situé dans le prestigieux quartier de la 7ème Rue Résidentiel allie tradition culinaire congolaise et innovation contemporaine.</p>
+                    <p class="text-gray-300 mb-6">Notre chef étoilé, Jean-Luc Mbayo, formé dans les meilleures écoles culinaires de Paris et Bruxelles, a créé une carte qui ravira les palais les plus exigeants.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-blue-400">
+                                <i class="fas fa-utensils text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Cuisine Fusion</h4>
+                                <p class="text-sm text-gray-400">Tradition & Innovation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-blue-400">
+                                <i class="fas fa-leaf text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Produits Locaux</h4>
+                                <p class="text-sm text-gray-400">Approvisionnement responsable</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-blue-400">
+                                <i class="fas fa-award text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Excellence</h4>
+                                <p class="text-sm text-gray-400">Service haut de gamme</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-blue-400">
+                                <i class="fas fa-heart text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Passion</h4>
+                                <p class="text-sm text-gray-400">Amour de la gastronomie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="mt-24">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">NOTRE ÉQUIPE</h2>
+                    <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                                 alt="Chef Jean-Luc Mbayo" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Jean-Luc Mbayo</h3>
+                            <p class="text-blue-400 mb-4">Chef Cuisinier</p>
+                            <p class="text-gray-300">Formé à l'École Ferrandi Paris, notre chef étoilé apporte une touche d'excellence française à la cuisine congolaise.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1366&q=80" 
+                                 alt="Directrice Sophie Kabasele" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sophie Kabasele</h3>
+                            <p class="text-blue-400 mb-4">Directrice</p>
+                            <p class="text-gray-300">Avec 15 ans d'expérience dans l'hôtellerie de luxe, Sophie veille à votre expérience inoubliable.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl overflow-hidden transition-all duration-500 hover:scale-105">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1562788865-2c5a6174303f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                                 alt="Sommelier David Ntumba" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">David Ntumba</h3>
+                            <p class="text-blue-400 mb-4">Sommelier</p>
+                            <p class="text-gray-300">Notre expert en vins vous guidera vers les meilleurs accords mets-vins d'Afrique et du monde.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">NOTRE MENU</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-2xl mx-auto">Découvrez nos créations culinaires qui marient tradition congolaise et innovation gastronomique</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center mb-12">
+                <button class="menu-category px-6 py-2 mx-2 mb-2 rounded-full bg-blue-500 text-white font-medium" data-category="entrees">Entrées</button>
+                <button class="menu-category px-6 py-2 mx-2 mb-2 rounded-full bg-gray-800 text-white font-medium" data-category="plats">Plats Principaux</button>
+                <button class="menu-category px-6 py-2 mx-2 mb-2 rounded-full bg-gray-800 text-white font-medium" data-category="desserts">Desserts</button>
+                <button class="menu-category px-6 py-2 mx-2 mb-2 rounded-full bg-gray-800 text-white font-medium" data-category="boissons">Boissons</button>
+            </div>
+
+            <!-- Entrées -->
+            <div id="entrees" class="menu-section">
+                <h3 class="text-2xl font-bold mb-8 text-blue-400">ENTRÉES</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Samossas de Banane Plantain</h4>
+                            <span class="text-blue-400 font-bold">12$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Croustillants de banane plantain farcis de viande hachée épicée, servis avec une sauce mangue-piment.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-white ml-2 text-sm">(48)</span>
+                        </div>
+                    </div>
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Tartare d'Avocat et Crevettes</h4>
+                            <span class="text-blue-400 font-bold">15$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Avocat crémeux du Kivu, crevettes du fleuve Congo, citron vert et épices locales.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-white ml-2 text-sm">(36)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plats Principaux -->
+            <div id="plats" class="menu-section hidden">
+                <h3 class="text-2xl font-bold mb-8 text-blue-400">PLATS PRINCIPAUX</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Poulet Moambe Royal</h4>
+                            <span class="text-blue-400 font-bold">22$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Notre version signature du plat national, avec poulet fermier, sauce moambe maison et fufu artisanal.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-white ml-2 text-sm">(112)</span>
+                        </div>
+                    </div>
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Filet de Capitaine du Fleuve</h4>
+                            <span class="text-blue-400 font-bold">28$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Poisson frais pêché dans le fleuve Congo, mariné aux herbes locales et servi avec légumes de saison.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-white ml-2 text-sm">(87)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div id="desserts" class="menu-section hidden">
+                <h3 class="text-2xl font-bold mb-8 text-blue-400">DESSERTS</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Délice de Mangue et Fruit de la Passion</h4>
+                            <span class="text-blue-400 font-bold">10$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Mousse légère de mangue du Katanga, coulis de fruit de la passion et crumble de noix de coco.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-white ml-2 text-sm">(54)</span>
+                        </div>
+                    </div>
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Chocolat Noir du Congo</h4>
+                            <span class="text-blue-400 font-bold">12$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Fondant au chocolat 70% de cacao congolais, glace vanille de Madagascar et tuile aux amandes.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-white ml-2 text-sm">(93)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boissons -->
+            <div id="boissons" class="menu-section hidden">
+                <h3 class="text-2xl font-bold mb-8 text-blue-400">BOISSONS</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Sélection de Vins Congolais</h4>
+                            <span class="text-blue-400 font-bold">À partir de 15$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Découvrez notre sélection exclusive de vins produits dans les vignobles du Sud-Kivu.</p>
+                    </div>
+                    <div class="dish-card bg-gray-900 p-6 rounded-xl transition duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-xl font-bold">Cocktails Signature</h4>
+                            <span class="text-blue-400 font-bold">12$</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Nos mixologues ont créé des cocktails uniques à base de fruits tropicaux et d'esprits locaux.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#" class="inline-block bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                    <i class="fas fa-download mr-2"></i> Télécharger le menu complet (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">GALERIE</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-xl text-gray-300 mt-6 max-w-2xl mx-auto">Un aperçu de l'ambiance et des plats qui vous attendent au Diamant</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Salle du restaurant" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Notre Salle Principale</span>
+                    </div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Plat signature" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Poulet Moambe Royal</span>
+                    </div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Terrasse" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Notre Terrasse Étoilée</span>
+                    </div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
+                         alt="Dessert" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Délice de Mangue</span>
+                    </div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Bar" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Notre Bar Élégant</span>
+                    </div>
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl group relative">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1386&q=80" 
+                         alt="Plat" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-white font-bold text-lg">Filet de Capitaine</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">CE QU'ILS DISENT DE NOUS</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"Une expérience culinaire inoubliable ! Le poulet moambe est à tomber, et le service est impeccable. Nous y retournerons certainement."</p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Didier K.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"L'ambiance est magnifique et les plats sont une réinterprétation moderne de nos classiques congolais. Bravo au chef !"</p>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Amina B.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"J'ai été impressionnée par la qualité des produits locaux utilisés. Le dessert à la mangue était divin. Un must à Kinshasa !"</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">RÉSERVEZ VOTRE TABLE</h2>
+                    <p class="text-xl text-gray-300 mb-8">Garantissez votre place dans notre établissement en réservant à l'avance. Notre équipe se fera un plaisir de vous accueillir.</p>
+                    
+                    <div class="bg-gray-800 p-6 rounded-xl mb-8">
+                        <h3 class="text-xl font-bold mb-4 text-blue-400">HORAIRES D'OUVERTURE</h3>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between">
+                                <span>Lundi - Jeudi</span>
+                                <span>11h30 - 22h00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Vendredi - Samedi</span>
+                                <span>11h30 - 23h30</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Dimanche</span>
+                                <span>12h00 - 21h00</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4 text-blue-400">ÉVÉNEMENTS À VENIR</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold">Soirée Dégustation de Vins Congolais</h4>
+                                <p class="text-sm text-gray-400">15 juillet 2023 - 19h00</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Menu Spécial Fête Nationale</h4>
+                                <p class="text-sm text-gray-400">30 juin 2023 - Toute la journée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 bg-gray-900 p-8 rounded-xl shadow-2xl">
+                    <form id="reservation-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium">Votre Nom</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block mb-2 text-sm font-medium">Téléphone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="date" class="block mb-2 text-sm font-medium">Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="time" class="block mb-2 text-sm font-medium">Heure</label>
+                                <input type="time" id="time" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="guests" class="block mb-2 text-sm font-medium">Nombre de Personnes</label>
+                            <select id="guests" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option>1 personne</option>
+                                <option selected>2 personnes</option>
+                                <option>3 personnes</option>
+                                <option>4 personnes</option>
+                                <option>5 personnes</option>
+                                <option>6 personnes</option>
+                                <option>Groupe (+6)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 text-sm font-medium">Demandes Spéciales</label>
+                            <textarea id="message" rows="3" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 transform hover:scale-105">
+                            Confirmer la Réservation
+                        </button>
+                    </form>
+                    <div class="mt-6 text-center">
+                        <p class="text-gray-400 mb-3">Ou contactez-nous directement</p>
+                        <a href="https://wa.me/243XXXXXXXXX" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full">
+                            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">CONTACTEZ-NOUS</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Adresse</h4>
+                                <p class="text-gray-400">7ème Rue Résidentiel, Kinshasa, RDC</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Téléphone</h4>
+                                <p class="text-gray-400">+243 XX XXX XXXX</p>
+                                <a href="tel:+243XXXXXXXXX" class="text-blue-400 hover:text-blue-300 text-sm mt-1 inline-block">
+                                    <i class="fas fa-phone mr-1"></i> Appeler maintenant
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-400 mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-400">contact@restaurantdiamant.cd</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold mt-12 mb-6">Suivez-nous</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-red-500 transition duration-300">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-900 p-6 rounded-xl h-full">
+                        <h3 class="text-2xl font-bold mb-6">Nous Trouver</h3>
+                        <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.805156715171!2d15.29798331531776!3d-4.322246246796171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a3139e1527a6f%3A0x96a64aef9085a4f1!2sKinshasa%2C%20R%C3%A9publique%20d%C3%A9mocratique%20du%20Congo!5e0!3m2!1sfr!2sfr!4v1686752345678!5m2!1sfr!2sfr" 
+                                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="mt-4 flex flex-col sm:flex-row gap-4">
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded-lg text-center transition duration-300">
+                                <i class="fas fa-directions mr-2"></i> Itinéraire
+                            </a>
+                            <a href="#" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg text-center transition duration-300">
+                                <i class="fas fa-phone mr-2"></i> Appeler
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-gem text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">DIAMANT</span>
+                </div>
+                <div class="text-gray-400 text-sm text-center md:text-right">
+                    <p>© 2023 Restaurant Diamant. Tous droits réservés.</p>
+                    <p class="mt-1">7ème Rue Résidentiel, Kinshasa, République Démocratique du Congo</p>
+                    <div class="mt-4 flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="hover:text-blue-400">Mentions légales</a>
+                        <a href="#" class="hover:text-blue-400">Politique de confidentialité</a>
+                        <a href="#" class="hover:text-blue-400">CGV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hidden items-center justify-center">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Menu category switching
+        const menuCategories = document.querySelectorAll('.menu-category');
+        const menuSections = document.querySelectorAll('.menu-section');
+
+        menuCategories.forEach(category => {
+            category.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active category button
+                menuCategories.forEach(btn => btn.classList.remove('bg-blue-500'));
+                menuCategories.forEach(btn => btn.classList.add('bg-gray-800'));
+                this.classList.remove('bg-gray-800');
+                this.classList.add('bg-blue-500');
+                
+                // Show selected section
+                const target = this.getAttribute('data-category');
+                menuSections.forEach(section => section.classList.add('hidden'));
+                document.getElementById(target).classList.remove('hidden');
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+                backToTopButton.classList.add('flex');
+            } else {
+                backToTopButton.classList.add('hidden');
+                backToTopButton.classList.remove('flex');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form submission
+        document.getElementById('reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre réservation ! Nous vous contacterons pour confirmation.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
